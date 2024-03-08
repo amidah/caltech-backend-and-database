@@ -3,9 +3,10 @@ package com.java.multithreading;
 
 class Printer{
 	String status = "Available";
-	synchronized void printDocument(String docName, int copies) {
+//	synchronized printDocument(String docName, int copies) {
+	void printDocument(String docName, int copies) {
 		status = "Busy";
-		System.out.println("[Printer] Printing the document: " + docName);
+		System.out.println("\n[Printer] Printing the document: " + docName);
 		showPrinterStatus();
 		
 		for(int i = 1; i <= copies; i++) {
@@ -17,10 +18,11 @@ class Printer{
 			}
 		}
 		status = "Available";
+		showPrinterStatus();
 	}
 	
 	void showPrinterStatus() {
-		System.out.println("[Printer] Status: " + status);
+		System.out.println("[Printer] Status: " + status + "\n");
 	}
 }
 
@@ -31,7 +33,16 @@ class Laptop extends Thread{
 	}
 	@Override
 	public void run() {
+		synchronized (pRef) {
+			try {
+				pRef.wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		pRef.printDocument(">> Johns Resume.pdf <<", 10);
+		
 	}
 }
 
@@ -42,7 +53,10 @@ class Desktop extends Thread{
 	}
 	@Override
 	public void run() {
+		synchronized (pRef) {
 		pRef.printDocument("^^^ Harrys Resume.pdf ^^^", 10);
+		pRef.notify();
+		}
 	}
 }
 
