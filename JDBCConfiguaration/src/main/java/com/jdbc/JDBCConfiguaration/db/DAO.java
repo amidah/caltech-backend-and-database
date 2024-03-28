@@ -17,5 +17,5 @@ public interface DAO {
 	Customer getCustomerById(int cid);
 	void executeStoredProcedure(User user);
 	void executeUpdateStoredProcedure(User user);
-	
+	void executeTransactions();
 }

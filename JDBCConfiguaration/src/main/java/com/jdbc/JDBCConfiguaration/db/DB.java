@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -234,6 +235,35 @@ public class DB implements DAO {
 		catch(Exception e) {
 			System.out.println("Exception Occured:" + e);
 		}
+	}
+
+	public void executeTransactions() {
+		try {
+//			con.setAutoCommit(false);
+			String sql1 = "insert into Orders values(null, 2, '2024-02-20', 3000)";
+			String sql2 = "insert into Orders values(null, 4, '2024-02-21', 5000)";
+			String sql3 = "update Orders set amount = 8000 where orderId=4";
+			stmt = con.createStatement();
+			stmt.addBatch(sql3);
+			stmt.addBatch(sql1);
+			stmt.addBatch(sql2);
+			
+			stmt.executeBatch();
+//			con.commit();
+			
+			System.out.println("Batch Executed...Transaction Committed Manually...");
+		}
+		catch(Exception e) {
+			System.out.println("Exception Occured:" + e);
+			try {
+				System.out.println("Rolling back the transaction...");
+				con.rollback();
+			}
+			catch(SQLException sqe) {
+				System.out.println("SQLBException Occured:" + sqe);
+			}
+		}
+		
 	}
 	
 

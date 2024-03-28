@@ -47,7 +47,8 @@ public class App
         user.setPassword("sam.smith@1234");
         
 //        db.executeStoredProcedure(user);
-        db.executeUpdateStoredProcedure(user);
+//        db.executeUpdateStoredProcedure(user);
+        db.executeTransactions();
         
         db.closeConnection();
     }
