@@ -8,13 +8,15 @@
 	<center>
 		<h3>Welcome to the eStore</h3>
 		<h3>Register Here with your Details</h3>
-		<form action="Register" method="post">
+		<form action="Front" method="post">
 			<b>Enter Your Name</b><br>
-			<input type="text" name="txtName" placeholder="eg: John Cena"/><br>
+			<input type="text" name="txtName" placeholder="eg: John Cena"/><br><br>
 			<b>Enter Your Email</b><br>
-			<input type="text" name="txtEmail" placeholder="eg: john@example.com"/><br>
+			<input type="text" name="txtEmail" placeholder="eg: john@example.com"/><br><br>
 			<b>Enter Your Password</b><br>
 			<input type="password" name="txtPassword" placeholder="min 6 characters"/><br><br>
+			<input type="hidden" value="register" name="txtType"/>
+			<br><br>
 			<input type="submit" value="REGISTER"/>
 		</form>
 		

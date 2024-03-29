@@ -10,13 +10,19 @@
 		<h3>Login Here with your Details</h3>
 		<form action="Login" method="post">
 			<b>Enter Your Email</b><br>
-			<input type="text" name="txtEmail" placeholder="eg: john@example.com"/><br>
+			<input type="text" name="txtEmail" placeholder="eg: john@example.com"/><br><br>
 			<b>Enter Your Password</b><br>
 			<input type="password" name="txtPassword" placeholder="min 6 characters"/><br><br>
+			<input type="hidden" value="login" name="txtType"/>
+			
+			<br><br>
+			
 			<input type="submit" value="LOGIN"/>
 		</form>
 		<br>
 		<a href="register.html">New User? Register Here</a>
+		<br>
+		<a href="Hello">Send request to Hello Servlet</a>
 	</center>
 </body>
 </html>
