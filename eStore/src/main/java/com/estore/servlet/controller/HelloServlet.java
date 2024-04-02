@@ -53,18 +53,24 @@ public class HelloServlet extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Hello Servlet - service executed.");
 		response.setContentType("text/html");
-		String htmlResponse = "<center><h3>Welcome to Hello Servlet!!!</h3>"
-				+ "<p>Request served at " + new Date() + "</p>";
+//		String htmlResponse = "<center><h3>Welcome to Hello Servlet!!!</h3>"
+//				+ "<p>Request served at " + new Date() + "</p>";
+		
+		String htmlResponse = "<center><h3>Welcome to Home Admin!!!</h3>"
+				+ "<p>Request served at " + new Date() + "</p>" + 
+				"<p><a href='add-products.html'>ADD PRODUCT</a></p><br>"
+				+ "<p><a href='ViewProducts'>VIEW PRODUCTS</a></p>";
+		
 		PrintWriter out = response.getWriter();
 		out.print(htmlResponse);
 		
 		// Session Tracking with Cookies
 		// Reading Cookies
 		
-		Cookie[] array = request.getCookies();
-		for(Cookie cookie : array) {
-			out.print("<p>" + cookie.getName() + " - " + cookie.getValue() + "</p>");
-		}
+//		Cookie[] array = request.getCookies();
+//		for(Cookie cookie : array) {
+//			out.print("<p>" + cookie.getName() + " - " + cookie.getValue() + "</p>");
+//		}
 		
 		out.print("</center>");
 	}

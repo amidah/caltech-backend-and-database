@@ -37,30 +37,34 @@ public class LoginServlet extends HttpServlet {
 		String password = request.getParameter("txtPassword");
 		
 		String message = "";
-		String loginTimeStamp = new Date().toString();
-		if(email.equals(EMAIL) && password.equals(PASSWORD)) {
-			// Session Tracking with Cookies
-			Cookie cookie1 = new Cookie("KEY_NAME", NAME);
-			Cookie cookie2 = new Cookie("KEY_SALES", String.valueOf(TOTAL_SALES));
-			
-			response.addCookie(cookie1);
-			response.addCookie(cookie2);
-			
-			message = "<center><h3>Welcome " + email + "</h3><p>You Loggedin at " + loginTimeStamp + "</p>"
-					+ "<p><a href='Home'>Click to navigate to Home</a></p></center>";
-		}
-		else {
-			message = "<center>Login unsuccessful at " + loginTimeStamp +
-					"<br><p>Please try again with valid credentials!!!</p></center>";
-		}
+//		String loginTimeStamp = new Date().toString();
+//		if(email.equals(EMAIL) && password.equals(PASSWORD)) {
+//			// Session Tracking with Cookies
+//			Cookie cookie1 = new Cookie("KEY_NAME", NAME);
+//			Cookie cookie2 = new Cookie("KEY_SALES", String.valueOf(TOTAL_SALES));
+//			
+//			response.addCookie(cookie1);
+//			response.addCookie(cookie2);
+//			
+//			message = "<center><h3>Welcome " + email + "</h3><p>You Loggedin at " + loginTimeStamp + "</p>"
+//					+ "<p><a href='Home'>Click to navigate to Home</a></p></center>";
+//		}
+//		else {
+//			message = "<center>Login unsuccessful at " + loginTimeStamp +
+//					"<br><p>Please try again with valid credentials!!!</p></center>";
+//		}
 		
 		response.setContentType("text/html");
 		
 		PrintWriter out = response.getWriter();
 		
-		out.print(message);
+//		out.print(message);
 		
+		out.print("<center>");
 		
+		out.print("<p>Welcome to Home<br><a href='Home'>Click to navigate to Home</a></p>");
+		
+		out.print("</center>");
 	}
 
 }

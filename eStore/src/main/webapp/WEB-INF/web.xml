@@ -69,4 +69,37 @@
     <filter-name>LoginFilter</filter-name>
     <url-pattern>/Login</url-pattern>
   </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ProductController</display-name>
+    <servlet-name>ProductController</servlet-name>
+    <servlet-class>com.estore.servlet.controller.ProductController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ProductController</servlet-name>
+    <url-pattern>/ProductController</url-pattern>
+    <url-pattern>/Product</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AllProductsController</display-name>
+    <servlet-name>AllProductsController</servlet-name>
+    <servlet-class>com.estore.servlet.controller.AllProductsController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AllProductsController</servlet-name>
+    <url-pattern>/AllProductsController</url-pattern>
+    <url-pattern>/ViewProducts</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteProductController</display-name>
+    <servlet-name>DeleteProductController</servlet-name>
+    <servlet-class>com.estore.servlet.controller.DeleteProductController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteProductController</servlet-name>
+    <url-pattern>/DeleteProductController</url-pattern>
+    <url-pattern>/Delete</url-pattern>
+  </servlet-mapping>
 </web-app>
