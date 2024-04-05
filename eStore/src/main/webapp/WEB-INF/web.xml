@@ -4,6 +4,10 @@
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
+  <context-param>
+  	<param-name>DBURL</param-name>
+  	<param-value>jdbc:mysql://localhost/estore/</param-value>
+  </context-param>
   <servlet>
     <description></description>
     <display-name>WelcomeServlet</display-name>
@@ -101,5 +105,50 @@
     <servlet-name>DeleteProductController</servlet-name>
     <url-pattern>/DeleteProductController</url-pattern>
     <url-pattern>/Delete</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateProductController</display-name>
+    <servlet-name>UpdateProductController</servlet-name>
+    <servlet-class>com.estore.servlet.controller.UpdateProductController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateProductController</servlet-name>
+    <url-pattern>/UpdateProductController</url-pattern>
+    <url-pattern>/Update</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateEditedProductDetailsController</display-name>
+    <servlet-name>UpdateEditedProductDetailsController</servlet-name>
+    <servlet-class>com.estore.servlet.controller.UpdateEditedProductDetailsController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateEditedProductDetailsController</servlet-name>
+    <url-pattern>/UpdateEditedProductDetailsController</url-pattern>
+    <url-pattern>/UpdateEditedDetails</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserServlet</display-name>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>com.estore.servlet.controller.UserServlet</servlet-class>
+	<init-param> 
+    	<param-name>appName</param-name>
+    	<param-value>eStore - Web App</param-value>
+    </init-param> 
+    <init-param> 
+    	<param-name>memoerUsageThreshold</param-name>
+    	<param-value>16</param-value>
+    </init-param> 
+    <init-param> 
+    	<param-name>accessToken</param-name>
+    	<param-value>1200AB9A</param-value>
+    </init-param> 
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/UserServlet</url-pattern>
+    <url-pattern>/User</url-pattern>
   </servlet-mapping>
 </web-app>

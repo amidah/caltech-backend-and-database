@@ -53,7 +53,7 @@ public class AllProductsController extends HttpServlet {
 				buffer.append("<td>"+product.code+"</td>");
 				buffer.append("<td>"+product.name+"</td>");
 				buffer.append("<td>"+product.price+"</td>");
-				buffer.append("<td><a href='Delete?id="+product.id+"'>DELETE</a> | <a href=''>UPDATE</a></td>");
+				buffer.append("<td><a href='Delete?id="+product.id+"'>DELETE</a> | <a href='Update?id="+product.id+"'>UPDATE</a></td>");
 				buffer.append("</tr>");
 			}
 			

@@ -92,4 +92,44 @@ public class DB {
 		}
 		return result;
 	}
+	
+	public Product fetchProduct(int id){
+		Product product = new Product();
+		try {
+			String sql = "select * from Product where id=?";
+			preparedStatement = connection.prepareStatement(sql);
+			preparedStatement.setInt(1, id);
+			
+			ResultSet set = preparedStatement.executeQuery();
+			
+			while(set.next()) {			
+				product.id = set.getInt(1);
+				product.code = set.getInt(2);
+				product.name = set.getString(3);
+				product.price = set.getInt(4);		
+			}
+		}
+		catch(Exception e) {
+			System.out.println("Something went wrong: " + e);
+		}
+		return product;
+	}
+	
+	public int updateProduct(Product product) {
+	    int result = 0;
+	    try {
+	        String sql = "update Product set code = ?, name = ?, price = ? where id = ?";
+	        preparedStatement = connection.prepareStatement(sql);
+	        preparedStatement.setInt(1, product.code);
+	        preparedStatement.setString(2, product.name);
+	        preparedStatement.setInt(3, product.price);
+	        preparedStatement.setInt(4, product.id);
+
+	        result = preparedStatement.executeUpdate();
+
+	    } catch (Exception e) {
+	        System.out.println("Something went wrong: " + e);
+	    }
+	    return result;
+	}
 }
