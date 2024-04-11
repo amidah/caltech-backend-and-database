@@ -19,7 +19,7 @@
  	stmt.setString(3, user.name);
  	
  	int result = db.executeUpdate(stmt);
- 	if(result > 1){
+ 	if(result >= 1){
  		%>
  		<h3>Thank You for Registration: <%= user.name %></h3>
  		<%

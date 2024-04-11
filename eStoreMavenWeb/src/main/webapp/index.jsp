@@ -14,7 +14,7 @@
 	
 	<h3>Register with Us</h3>
 	<div style="align-items: center;">
-		<form action="register" method="post">
+		<form action="register.jsp" method="post">
 			Enter Name: <br>
 			<input type="text" name="txtName"/><br><br>
 			Enter Email: <br>
@@ -25,6 +25,6 @@
 		</form>
 	
 	</div>
-	
+	<a href="login-user.html">Existing User? Login Here</a>
 </body>
 </html>
