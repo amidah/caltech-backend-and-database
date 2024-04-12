@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ include file="header.jsp" %>
+<%@ page errorPage="error-page.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +43,15 @@
 			
 			return 0.20;
 		}
+		
+		int[] cashBacks = {10, 20, 30, 40, 50, 60, 70, 80, 90, 100};
+		
 	%>
+	<%
+		out.print("App Name: " + appName + " <br>");
+		out.print("Discount: " + getDiscount("JUMBO") + " <br>");
+	%>
+	<h3>CashBack Earned: <%= cashBacks[13] %></h3>
 </body>
 </html>
 
