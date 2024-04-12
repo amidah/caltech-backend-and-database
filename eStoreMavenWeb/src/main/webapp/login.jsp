@@ -43,6 +43,11 @@
 		
 		<h3>Thank You for Logging In: <%= user.name %></h3>
 		<a href="home.jsp?name=<%= user.name%>&email=<%= user.email%>">Enter Home</a>
+		<br><br>
+		<jsp:forward page="welcome.jsp">
+			<jsp:param name="username" value="<%= user.name %>"/>
+			<jsp:param name="useremail" value="<%= user.email %>"/>
+		</jsp:forward>
 		<%
 	}
 	else{
